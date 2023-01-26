@@ -16,10 +16,9 @@
 package com.google.chat.bot.basic;
 
 // [START basic-bot]
-
 import com.fasterxml.jackson.databind.JsonNode;
 import com.google.api.services.chat.v1.model.Message;
-
+import java.util.logging.Logger;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -27,10 +26,6 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.util.logging.Logger;
-
-@SpringBootApplication
-@RestController
 public class Bot {
   private static final Logger logger =  Logger.getLogger(Bot.class.getName());
 
@@ -44,7 +39,6 @@ public class Bot {
    * @param event Event from chat.
    * @return Message
    */
-  @PostMapping("/")
   @ResponseBody
   public Message onEvent(@RequestBody JsonNode event) {
     String replyText = "";
